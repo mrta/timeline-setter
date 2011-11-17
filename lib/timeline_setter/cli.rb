@@ -78,7 +78,7 @@ module TimelineSetter
       if !@options[:no_assets] || !@options[:min]
         FileUtils.cp_r(Dir.glob("#{TimelineSetter::ROOT}/public/*"), outdir)
         # Concatenate JSTs to timeline-setter.js and remove templates.js
-        `cat #{outdir}/javascripts/templates.js >> #{outdir}/javascripts/timeline-setter.js && rm -rf #{outdir}/javascripts/templates*`
+        `cat '#{outdir}/javascripts/templates.js' >> '#{outdir}/javascripts/timeline-setter.js' && rm -rf '#{outdir}/javascripts/templates*'`
       end
 
       File.open(timeline_page_path, 'w+') do |doc|
